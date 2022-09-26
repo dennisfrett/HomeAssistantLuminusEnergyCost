@@ -1,0 +1,8 @@
+{
+  "domain": "luminus_energy_cost",
+  "name": "Luminus Energy Cost",
+  "documentation": "xxx",
+  "requirements": ["PyPDF2"],
+  "codeowners": ["@dennisfrett"],
+  "version": "1"
+}

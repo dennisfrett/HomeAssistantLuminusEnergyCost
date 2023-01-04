@@ -109,7 +109,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText().replace(",",".")
+        text = page.extract_text().replace(",",".")
 
         matches = re.search(cost_regex, text)
 
@@ -131,7 +131,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText().replace(",",".")
+        text = page.extract_text().replace(",",".")
 
         matches = re.search(cost_regex, text)
 
@@ -151,7 +151,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText().replace(",", ".")
+        text = page.extract_text().replace(",", ".")
 
         matches = re.search(cost_regex, text)
 
@@ -181,7 +181,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText().replace(",",".")
+        text = page.extract_text().replace(",",".")
 
         matches = re.search(cost_regex, text)
 
@@ -200,7 +200,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText().replace(",",".")
+        text = page.extract_text().replace(",",".")
 
         matches = re.search(cost_regex, text)
 
@@ -218,7 +218,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText().replace(",", ".")
+        text = page.extract_text().replace(",", ".")
 
         matches = re.search(cost_regex, text)
 
@@ -253,7 +253,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText().replace(",",".")
+        text = page.extract_text().replace(",",".")
 
         matches = re.search(cost_regex, text)
 
@@ -273,7 +273,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText()
+        text = page.extract_text()
         
         matches = re.search(month_regex, text)
 
@@ -290,7 +290,7 @@ class LuminusEnergyCost(Entity):
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
-        text = page.extractText()
+        text = page.extract_text()
         
         matches = re.search(month_regex, text)
 

@@ -141,10 +141,10 @@ class LuminusEnergyCost(Entity):
         return atof(vl_groene_stroom) + atof(vl_wkk)
 
     def get_elek_netkosten(self, pdf):
-        # Example match string (excl. day, day, night, excl. night, transport costs, ...)
-        # Fluvius (Iverlek) 9,63 9,63 7,06 5,33 1,16 12,22 68,68
+        # Example match string (databeheer, capaciteitstarief, dag, nacht) (Rest is for normal, non-digital meter)
+        # Fluvius (Iverlek) 13.39 43.67 3.89 2.78 109.19 6.13 5.02 41.38
         cost_regex = "Fluvius \\(Iverlek\\)\\s+([\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+)"
-        match_index = 2 if self.__type == "elek_dag" else 3
+        match_index = 3 if self.__type == "elek_dag" else 4
 
         try:
             page = pdf.pages[1]
@@ -156,9 +156,8 @@ class LuminusEnergyCost(Entity):
         matches = re.search(cost_regex, text)
 
         netkost = atof(matches[match_index])
-        transportkost = atof(matches[5])
 
-        return netkost + transportkost
+        return netkost
 
     def get_elek_taksen(self, pdf):
         # Example match string (Laagspanning niet-residentieel, Laagspanning residentieel, Bijzondere accijns Vlaanderen, Bijdrage op de energie Vlaanderen, ...)

@@ -105,7 +105,7 @@ class LuminusEnergyCost(Entity):
         match_index = 2 if self.__type == "elek_dag" else 3
 
         try:
-            page = pdf.getPage(0)
+            page = pdf.pages[0]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
@@ -127,7 +127,7 @@ class LuminusEnergyCost(Entity):
         cost_regex = "Kosten groene.*\\nstroom.*\\n.*VL.*\n([\\d.]+)\\n([\\d.]+)WAL\\n([\\d.]+)"
 
         try:
-            page = pdf.getPage(0)
+            page = pdf.pages[0]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
@@ -147,7 +147,7 @@ class LuminusEnergyCost(Entity):
         match_index = 2 if self.__type == "elek_dag" else 3
 
         try:
-            page = pdf.getPage(1)
+            page = pdf.pages[1]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
@@ -177,7 +177,7 @@ class LuminusEnergyCost(Entity):
         match_index = 2 if self.__type == "elek_dag" else 3
 
         try:
-            page = pdf.getPage(1)
+            page = pdf.pages[1]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
@@ -196,7 +196,7 @@ class LuminusEnergyCost(Entity):
         cost_regex = "Energie\\s+\\(c€\\/kWh\\)\\s+([\\d.]+)"
 
         try:
-            page = pdf.getPage(0)
+            page = pdf.pages[0]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
@@ -214,7 +214,7 @@ class LuminusEnergyCost(Entity):
         cost_regex = "Fluvius \\(Iverlek\\)\\s+([\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+)\\s+([\\d.]+)"
 
         try:
-            page = pdf.getPage(1)
+            page = pdf.pages[1]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
@@ -249,7 +249,7 @@ class LuminusEnergyCost(Entity):
         cost_regex = "Aansluitingsvergoeding.*kWh\\)([\\d.-]+)\\n([\\d.-]+)"
 
         try:
-            page = pdf.getPage(1)
+            page = pdf.pages[1]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
@@ -269,7 +269,7 @@ class LuminusEnergyCost(Entity):
         month_regex = "Luminus ComfyFlex Elektriciteit\\(([a-zA-Z]+)\\s\\d\\d\\d\\d\\s+\\)"
 
         try:
-            page = pdf.getPage(0)
+            page = pdf.pages[0]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 
@@ -286,7 +286,7 @@ class LuminusEnergyCost(Entity):
         month_regex = "Luminus ComfyFlex Gas\\(([a-zA-Z]+)\\s\\d\\d\\d\\d\\s+\\)"
 
         try:
-            page = pdf.getPage(0)
+            page = pdf.pages[0]
         except IndexError:
             _LOGGER.error("Index error in pdf")
 

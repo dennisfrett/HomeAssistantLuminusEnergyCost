@@ -173,7 +173,7 @@ class LuminusEnergyCost(Entity):
         # 1,4416
         # 0,2042
         # 0,0750
-        cost_regex = "Aansluitingsvergoeding.*\\)([\\d.]+)\\n([\\d.]+)\\n([\\d.]+)\\n([\\d.]+)"
+        cost_regex = "Aansluitingsvergoeding.*\\)([\\d.-]+)\\n([\\d.-]+)\\n([\\d.-]+)\\n([\\d.-]+)"
         match_index = 2 if self.__type == "elek_dag" else 3
 
         try:
@@ -230,16 +230,23 @@ class LuminusEnergyCost(Entity):
     def get_gas_taksen(self, pdf):
 
         # Example match string: (Bijdrage op energie VL, bijz, accijns VL, bijdrage energie WAL, ...)
-        # Taksen en heffingen :VL WAL
+        # Taksen en heffingen : VL WAL
+        # Bijdrage Energiefonds   (*) (€/maand )
+        # Laagspanning niet-residentieel
+        # Laagspanning residentieel
+        # Bijzondere accijns  (**) (c€/kWh)
         # Bijdrage op de energie  (c€/kWh)
-        # Bijzondere accijns   (c€/kWh)
-        # Aansluitingsvergoeding  (*)(**) (c€/kWh)0.1058
-        # 0.0572
-        # -0.1058
-        # 0.0572
-        # 0.0075
+        # Aansluitingsvergoeding  (*)(***)  (c€/kWh)9.5400
+        # -
+        # 1.4416
+        # 0.2042
+        # --
+        # -
+        # 1.4416
+        # 0.2042
+        # 0.0750
 
-        cost_regex = "Aansluitingsvergoeding.*kWh\\)([\\d.]+)\\n([\\d.]+)"
+        cost_regex = "Aansluitingsvergoeding.*kWh\\)([\\d.-]+)\\n([\\d.-]+)"
 
         try:
             page = pdf.getPage(1)
